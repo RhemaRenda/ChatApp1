@@ -36,7 +36,7 @@ public class Message {
 
         return id;
     }
-
+     // Validates generated message ID
     public boolean checkMessageID() {
 
         return messageID.length() <= 10;
@@ -50,7 +50,7 @@ public class Message {
             return "Cell phone number is incorrectly formatted or does not contain an international code. Please correct the number and try again.";
         }
     }
-
+    // Ensure message does not exceed 250 characters
     public String checkMessageLength() {
 
         if (messageText.length() <= 250) {
@@ -64,7 +64,7 @@ public class Message {
                     + ", please reduce the size.";
         }
     }
-
+     //Generates unique message hash
     public String createMessageHash() {
 
         String[] words = messageText.split(" ");

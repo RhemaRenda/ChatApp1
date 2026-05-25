@@ -12,13 +12,13 @@ public class Login {
         this.firstName = firstName;
         this.lastName = lastName;
     }
-
+     // Validates username requirements
     public boolean checkUserName(String username) {
 
         return username.contains("_")
                 && username.length() <= 5;
     }
-
+     // Checks password complexity requirements
     public boolean checkPasswordComplexity(String password) {
 
         boolean hasCapital = false;
@@ -56,7 +56,7 @@ public class Login {
     // Title: Pattern (Java Regex Documentation)
     // Link:
     // https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html
-
+    // Validates South African cell phone number
     public boolean checkCellPhoneNumber(String cellPhoneNumber) {
 
         return cellPhoneNumber.matches("^\\+27\\d{9}$");
