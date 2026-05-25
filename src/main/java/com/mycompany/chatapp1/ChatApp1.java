@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class ChatApp1 {
 
     public static void main(String[] args) {
-
+     // Scanner used for user input
         Scanner input = new Scanner(System.in);
      // QuickChat registration section
         System.out.println("===== QUICKCHAT REGISTRATION =====");
@@ -102,7 +102,7 @@ public class ChatApp1 {
 
                                 continue;
                             }
-
+                             //allows user to choose message action
                             System.out.println("\nChoose option:");
                             System.out.println("1) Send Message");
                             System.out.println("2) Disregard Message");
