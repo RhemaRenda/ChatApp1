@@ -1,15 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.chatapp1;
 
-/**
- *
- * @author Student
- */
-
- public class Login {
+public class Login {
 
     private String firstName;
     private String lastName;
@@ -23,48 +14,83 @@ package com.mycompany.chatapp1;
     }
 
     public boolean checkUserName(String username) {
-        return username.contains("_") && username.length() <= 5;
+
+        return username.contains("_")
+                && username.length() <= 5;
     }
 
     public boolean checkPasswordComplexity(String password) {
-        boolean hasUpperCase = false;
+
+        boolean hasCapital = false;
         boolean hasNumber = false;
-        boolean hasSpecialCharacter = false;
+        boolean hasSpecial = false;
 
         if (password.length() < 8) {
             return false;
         }
 
         for (int i = 0; i < password.length(); i++) {
+
             char ch = password.charAt(i);
 
             if (Character.isUpperCase(ch)) {
-                hasUpperCase = true;
-            } else if (Character.isDigit(ch)) {
+                hasCapital = true;
+            }
+
+            if (Character.isDigit(ch)) {
                 hasNumber = true;
-            } else if (!Character.isLetterOrDigit(ch)) {
-                hasSpecialCharacter = true;
+            }
+
+            if (!Character.isLetterOrDigit(ch)) {
+                hasSpecial = true;
             }
         }
 
-        return hasUpperCase && hasNumber && hasSpecialCharacter;
+        return hasCapital
+                && hasNumber
+                && hasSpecial;
     }
 
+    // Regex reference used for learning:
+    // Author: Oracle
+    // Title: Pattern (Java Regex Documentation)
+    // Link:
+    // https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html
+
     public boolean checkCellPhoneNumber(String cellPhoneNumber) {
+
         return cellPhoneNumber.matches("^\\+27\\d{9}$");
     }
 
-    public String registerUser(String username, String password, String cellPhoneNumber) {
+    public String registerUser(
+            String username,
+            String password,
+            String cellPhoneNumber) {
+
         if (!checkUserName(username)) {
-            return "Username is not correctly formatted; please ensure that your username contains an underscore and is no more than five characters in length.";
+
+            return "Username is not correctly formatted; "
+                    + "please ensure that your username "
+                    + "contains an underscore and is "
+                    + "no more than five characters in length.";
         }
 
         if (!checkPasswordComplexity(password)) {
-            return "Password is not correctly formatted; please ensure that the password contains at least eight characters, a capital letter, a number, and a special character.";
+
+            return "Password is not correctly formatted; "
+                    + "please ensure that the password "
+                    + "contains at least eight characters, "
+                    + "a capital letter, a number, "
+                    + "and a special character.";
         }
 
         if (!checkCellPhoneNumber(cellPhoneNumber)) {
-            return "Cell phone number is incorrectly formatted or does not contain an international code; please correct the number and try again.";
+
+            return "Cell phone number is incorrectly "
+                    + "formatted or does not contain "
+                    + "an international code; "
+                    + "please correct the number "
+                    + "and try again.";
         }
 
         this.username = username;
@@ -74,40 +100,72 @@ package com.mycompany.chatapp1;
         return "User has been registered successfully.";
     }
 
-    public boolean loginUser(String enteredUsername, String enteredPassword) {
-        return enteredUsername.equals(this.username) && enteredPassword.equals(this.password);
+    public boolean loginUser(
+            String enteredUsername,
+            String enteredPassword) {
+
+        return enteredUsername.equals(username)
+                && enteredPassword.equals(password);
     }
 
     public String returnLoginStatus(boolean loginSuccess) {
+
         if (loginSuccess) {
-            return "Welcome " + firstName + ", " + lastName + " it is great to see you again.";
+
+            return "Welcome "
+                    + firstName
+                    + ", "
+                    + lastName
+                    + " it is great to see you again.";
+
         } else {
-            return "Username or password incorrect, please try again.";
+
+            return "Username or password incorrect, "
+                    + "please try again.";
         }
     }
 
     public String getUsernameMessage(String username) {
+
         if (checkUserName(username)) {
+
             return "Username successfully captured.";
+
         } else {
-            return "Username is not correctly formatted; please ensure that your username contains an underscore and is no more than five characters in length.";
+
+            return "Username is not correctly formatted; "
+                    + "please ensure that your username "
+                    + "contains an underscore and is "
+                    + "no more than five characters in length.";
         }
     }
 
     public String getPasswordMessage(String password) {
+
         if (checkPasswordComplexity(password)) {
+
             return "Password successfully captured.";
+
         } else {
-            return "Password is not correctly formatted; please ensure that the password contains at least eight characters, a capital letter, a number, and a special character.";
+
+            return "Password is not correctly formatted; "
+                    + "please ensure that the password "
+                    + "contains at least eight characters, "
+                    + "a capital letter, a number, "
+                    + "and a special character.";
         }
     }
 
     public String getCellPhoneMessage(String cellPhoneNumber) {
+
         if (checkCellPhoneNumber(cellPhoneNumber)) {
+
             return "Cell phone number successfully added.";
+
         } else {
-            return "Cell phone number incorrectly formatted or does not contain international code.";
+
+            return "Cell phone number incorrectly formatted "
+                    + "or does not contain international code.";
         }
     }
-}   
-
+}
