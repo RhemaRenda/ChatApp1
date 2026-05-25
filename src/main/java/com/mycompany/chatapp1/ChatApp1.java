@@ -121,7 +121,7 @@ public class ChatApp1 {
                                         "\n" + message.printMessage());
                             }
                         }
-
+                        // returns total messages sent
                         System.out.println(
                                 "\nTotal messages sent: "
                                 + Message.returnTotalMessages());
