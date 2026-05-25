@@ -7,7 +7,7 @@ public class ChatApp1 {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
-
+     // QuickChat registration section
         System.out.println("===== QUICKCHAT REGISTRATION =====");
 
         System.out.print("Enter first name: ");
@@ -15,7 +15,7 @@ public class ChatApp1 {
 
         System.out.print("Enter last name: ");
         String lastName = input.nextLine();
-
+        // Created login object
         Login login = new Login(firstName, lastName);
 
         System.out.print("Enter username: ");
@@ -56,7 +56,7 @@ public class ChatApp1 {
             System.out.println("\nWelcome to QuickChat.");
 
             boolean running = true;
-
+         // Main QuickChat menu loop
             while (running) {
 
                 System.out.println("\nChoose an option:");
